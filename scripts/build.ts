@@ -12,6 +12,8 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeFormat from 'rehype-format';
 import rehypeStringify from 'rehype-stringify';
 
+import remarkEmbedImages from './remarkEmbedImages.js';
+
 const MARKDOWN_DIR = path.join(process.cwd(), 'examples');
 
 const paths = globSync(path.join(MARKDOWN_DIR, '/*.md'));
@@ -22,6 +24,8 @@ paths.forEach(async (mdPath) => {
   const result = await remark()
     // .use(remarkBreaks)
     .use(remarkGfm)
+
+    .use(remarkEmbedImages, { path: '11' })
 
     // 开始转为 HTML 树
     .use(remarkRehype, {

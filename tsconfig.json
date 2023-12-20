@@ -10,11 +10,14 @@
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
     "strict": true,
+    "allowJs": true,
     "esModuleInterop": true,
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "baseUrl": "."
-  }
+  },
+  "include": ["./scripts/*.ts", "./scripts/remarkEmbedImages.js"],
+  "exclude": ["node_modules"]
 }
